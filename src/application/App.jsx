@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 import { Wrapper } from './StyeledComponents';
 import ContactsBook from './contactsBook/ContactsBook';
 
 const App = () => {
-  const [contacts, setContacts] = useState([]);
   const [filter, setFilter] = useState('');
+  const [contacts, setContacts] = useState([]);
 
   useEffect(() => {
     const isStored = localStorage.getItem('contacts')
@@ -28,5 +29,12 @@ const App = () => {
     </Wrapper>
   );
 };
+
+App.propTypes = {
+  filter: PropTypes.string,
+  contacts: PropTypes.array,
+  setFilter: PropTypes.func,
+  setContacts: PropTypes.func,
+}
 
 export default App;

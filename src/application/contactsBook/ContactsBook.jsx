@@ -44,7 +44,7 @@ const ContactsBook = props => {
 
 ContactsBook.propTypes = {
   filter: PropTypes.string,
-  contacts: PropTypes.array,
+  contacts: PropTypes.array.isRequired,
   setFilter: PropTypes.func,
   setContacts: PropTypes.func,
 };

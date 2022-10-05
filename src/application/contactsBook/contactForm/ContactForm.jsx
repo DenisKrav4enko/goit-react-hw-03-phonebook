@@ -20,7 +20,7 @@ const ContactForm = props => {
 
   const handleOnSubmit = event => {
     if (contacts.every(contact => contact.name !== name)) {
-      setContacts([...contacts, { id: nanoid(), name: name, number: number }]);
+      setContacts([...contacts, { id: nanoid(), name, number }]);
       event.preventDefault();
     } else {
       alert(`${name} is already in contacts`);
@@ -65,8 +65,15 @@ const ContactForm = props => {
 }
 
 ContactForm.propTypes = {
-  contacts: PropTypes.array,
+  id: PropTypes.string,
+  name: PropTypes.string,
+  number: PropTypes.string,
+  setName: PropTypes.func,
+  contact: PropTypes.object,
+  contacts: PropTypes.array.isRequired,
+  setNumber: PropTypes.func,
   setContacts: PropTypes.func,
+  handleOnSubmit: PropTypes.func,
 };
 
 export default ContactForm;
